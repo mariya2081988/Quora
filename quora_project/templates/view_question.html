@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Questions</title>
+</head>
+<body>
+    <h2>Questions</h2>
+    <ul>
+        {% for question in questions %}
+            <li>
+                <strong>{{ question.title }}</strong>
+                <p>{{ question.content }}</p>
+                <p>Posted by: {{ question.user.username }}</p>
+                <p>Answers:</p>
+                <ul>
+                    {% for answer in question.answer_set.all %}
+                        <li>
+                            {{ answer.content }}
+                            <p>Posted by: {{ answer.user.username }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
